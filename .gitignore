@@ -1,6 +1,9 @@
 # Emacs backup files
 *~
 
+# Database files
+*.db
+
 # Compiled class file
 *.class
 
