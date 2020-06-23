@@ -11,13 +11,13 @@ CREATE TRIGGER texts_default_fields_before_insert
   BEFORE INSERT ON Texts
   FOR EACH ROW AS
   $$org.h2.api.Trigger create()
-  {return new ivory.database.triggers.DefaultFromFieldTrigger(java.util.Map.of(2, 1, 3, 1));}$$;
+  {return new ivory.database.DefaultFromFieldTrigger(java.util.Map.of(2, 1, 3, 1));}$$;
 
 CREATE TRIGGER texts_default_fields_after_update
   BEFORE UPDATE ON Texts
   FOR EACH ROW AS
   $$org.h2.api.Trigger create()
-  {return new ivory.database.triggers.DefaultFromFieldTrigger(java.util.Map.of(2, 1, 3, 1));}$$;
+  {return new ivory.database.DefaultFromFieldTrigger(java.util.Map.of(2, 1, 3, 1));}$$;
 
 CREATE TABLE Authors (
   AuthorId IDENTITY NOT NULL,
@@ -31,13 +31,13 @@ CREATE TRIGGER authors_default_fields_before_insert
   BEFORE INSERT ON Authors
   FOR EACH ROW AS
   $$org.h2.api.Trigger create()
-  {return new ivory.database.triggers.DefaultFromFieldTrigger(java.util.Map.of(2, 1, 3, 1));}$$;
+  {return new ivory.database.DefaultFromFieldTrigger(java.util.Map.of(2, 1, 3, 1));}$$;
 
 CREATE TRIGGER authors_default_fields_after_update
   BEFORE UPDATE ON Authors
   FOR EACH ROW AS
   $$org.h2.api.Trigger create()
-  {return new ivory.database.triggers.DefaultFromFieldTrigger(java.util.Map.of(2, 1, 3, 1));}$$;
+  {return new ivory.database.DefaultFromFieldTrigger(java.util.Map.of(2, 1, 3, 1));}$$;
 
 CREATE TABLE Tags (
   TagId IDENTITY NOT NULL,

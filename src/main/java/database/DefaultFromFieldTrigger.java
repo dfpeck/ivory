@@ -1,4 +1,4 @@
-package ivory.database.triggers;
+package ivory.database;
 
 import org.h2.api.Trigger;
 
