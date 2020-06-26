@@ -9,6 +9,9 @@ import java.util.Map;
 
 /**
  * Trigger to assign default column values from other column values.
+ *
+ * See Trigger interface documentation in the H2 database API
+ * (http://h2database.com/javadoc/index.html) for mor information.
  */
 public class DefaultFromFieldTrigger implements Trigger
 {
@@ -19,6 +22,10 @@ public class DefaultFromFieldTrigger implements Trigger
 
   /**
    * Constructor.
+   *
+   * @param assignmentsInit Map (row index -> default index) describing how to assign
+   *                        defaults, where if the column at `row index` is NULL, it will
+   *                        be assigned the value of the column at `default index`.
    */
   public DefaultFromFieldTrigger (Map<Integer, Integer> assignmentsInit)
   {

@@ -7,6 +7,9 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Collection of utility functions for database interaction.
+ */
 public class DatabaseUtils
 {
   /**
@@ -14,6 +17,17 @@ public class DatabaseUtils
    */
   private DatabaseUtils() {}
 
+  /**
+   * Convert a result set to a list of maps.
+   *
+   * Each row will be represented as a map (column name -> value), each of which will be
+   * stored in a list.
+   *
+   * @param rs ResultSet object to convert.
+   * @param columnNames Names of the columns to extract from each row.
+   *
+   * @return List of maps, each representing a row from the ResultSet.
+   */
   public static List<Map<String, Object>> resultSetToMapList(ResultSet rs, String... columnNames)
     throws SQLException
   {
