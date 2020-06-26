@@ -1,26 +1,35 @@
+-- Insert Authors --
 INSERT INTO Authors (FullName, SortName)
-  VALUES ('Friedrich Engels', 'Engels Friedrich'),
-         ('Peter Kropotkin', 'Kropotkin Peter'),
-         ('Rosa Luxemburg', 'Luxemburg Rosa'),
-         ('Karl Marx', 'Marx Karl');
+  VALUES ('Safiya Noble', 'Noble Safiya'),
+         ('Brian Kernighan', 'Kernighan Brian'),
+         ('Dennis Ritchie', 'Ritchie Dennis'),
+         ('Fred Brooks', 'Brooks Fred');
+
+-- Insert Texts --
+INSERT INTO Texts (FullTitle)
+  VALUES ('Algorithms of Oppression');
 
 INSERT INTO Texts (FullTitle, SortTitle)
-  VALUES ('The Accumulation of Capital', 'Accumulation of Capital The'),
-         ('The Communist Manifesto', 'Communist Manifesto The'),
-         ('The Conquest of Bread', 'Conquest of Bread The');
+  VALUES ('The C Programming Language', 'C Programming Language The');
+
+INSERT INTO Texts (FullTitle, DisplayTitle, SortTitle)
+  VALUES ('The Mythical Man-Month: Essays on Software Engineering',
+          'The Mythical Man-Month', 'Mythical Man-Month The');
+
+-- Relate Texts to Authors --
+INSERT INTO TextAuthorRelations (TextId, AuthorId)
+  SELECT Texts.TextId, Authors.AuthorId
+  FROM Texts, Authors
+  WHERE Texts.FullTitle='Algorithms of Oppression' AND Authors.FullName='Safiya Noble';
 
 INSERT INTO TextAuthorRelations (TextId, AuthorId)
   SELECT Texts.TextId, Authors.AuthorId
   FROM Texts, Authors
-  WHERE Texts.FullTitle='The Conquest of Bread' AND Authors.FullName='Peter Kropotkin';
+  WHERE Texts.FullTitle='The C Programming Language'
+        AND (Authors.FullName='Brian Kernighan' OR Authors.FullName='Dennis Ritchie');
 
 INSERT INTO TextAuthorRelations (TextId, AuthorId)
   SELECT Texts.TextId, Authors.AuthorId
   FROM Texts, Authors
-  WHERE Texts.FullTitle='The Accumulation of Capital' AND Authors.FullName='Rosa Luxemburg';
-
-INSERT INTO TextAuthorRelations (TextId, AuthorId)
-  SELECT Texts.TextId, Authors.AuthorId
-  FROM Texts, Authors
-  WHERE Texts.FullTitle='The Communist Manifesto'
-        AND (Authors.FullName='Karl Marx' OR Authors.FullName='Friedrich Engels');
+  WHERE Texts.FullTitle='The Mythical Man-Month: Essays on Software Engineering'
+        AND Authors.FullName='Fred Brooks';

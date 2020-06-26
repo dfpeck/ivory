@@ -44,10 +44,11 @@ public class TestDatabaseManager
       db.runScriptFromResource(getClass(), "/database/test_select_pairs.sql", "Title", "Author");
 
     Map<Map<String, Object>, Boolean> expected = new HashMap<Map<String, Object>, Boolean>();
-    expected.put(Map.of("Title", "The Conquest of Bread", "Author", "Peter Kropotkin"), false);
-    expected.put(Map.of("Title", "The Accumulation of Capital", "Author", "Rosa Luxemburg"), false);
-    expected.put(Map.of("Title", "The Communist Manifesto", "Author", "Karl Marx"), false);
-    expected.put(Map.of("Title", "The Communist Manifesto", "Author", "Friedrich Engels"), false);
+    expected.put(Map.of("Title", "Algorithms of Oppression", "Author", "Safiya Noble"), false);
+    expected.put(Map.of("Title", "The Mythical Man-Month: Essays on Software Engineering",
+                        "Author", "Fred Brooks"), false);
+    expected.put(Map.of("Title", "The C Programming Language", "Author", "Brian Kernighan"), false);
+    expected.put(Map.of("Title", "The C Programming Language", "Author", "Dennis Ritchie"), false);
 
     for (Map<String, Object> row : results)
     {
